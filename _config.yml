@@ -25,7 +25,7 @@ author:
   avatar           : "profile.png"
   name             : "Jean Pierre B. López Vargas"
   pronouns         : # example: "she/her"  
-  bio              : "I am an AI researcher at the Prisma Lab, São Paulo State University, and a PhD candidate in Electrical Engineering at UNICAMP. With a Master’s in Electrical Engineering (UNICAMP, 2015) and a Bachelor’s in Electronic Engineering (San Luis Gonzaga National University of Ica, Perú, 2010), I specialize in Deep Learning, Computer Vision, and System Identification. My research focuses on Time Series Estimation, Prediction, and Information Criteria, and I am currently exploring Machine Learning and Computer Vision to develop innovative AI solutions."# "Short biography for the left-hand sidebar"
+  bio              : "I am an AI researcher at the Prisma Lab, São Paulo State University, and a PhD candidate in Electrical Engineering at UNICAMP. With a Master’s in Electrical Engineering (UNICAMP, 2015) and a Bachelor’s in Electronic Engineering (San Luis Gonzaga National University of Ica, Perú, 2010). My research interests are Deep Learning, Computer Vision, Time Series Forecasting, Identification and Control System, and Information Criteria.# "Short biography for the left-hand sidebar"
   location         : "Rio Claro, SP, Brazil"
   employer         : "São Paulo State University"
   uri              : # URL
@@ -33,7 +33,7 @@ author:
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : "https://scholar.google.com/citations?user=TC-UZDAAAAAJ&hl=en"
   impactstory      : # URL
   orcid            : "http://orcid.org/0009-0001-3254-0728"
   semantic         : # URL
