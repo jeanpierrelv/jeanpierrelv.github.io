@@ -7,7 +7,11 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+{% if site.author.googlescholar %}
+  <div class="wordwrap">You can also find my CV on <a href="{{https://www.linkedin.com/in/jean-pierre-lv/}}">my Linkedin profile</a>.</div>
+{% endif %}
+
+<!--{% include base_path %}
 
 Education
 ======
@@ -61,4 +65,4 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Currently signed in to 43 different slack teams -->
