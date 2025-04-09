@@ -7,6 +7,11 @@ redirect_from:
   - /wordpress/blog-posts/
 ---
 
+{% if site.author.googlescholar %}
+  <div class="wordwrap">You can also find my blog on <a href="{{https://medium.com/@jeanpierre_lv}}">my Medium profile</a>.</div>
+{% endif %}
+
+<!--
 {% include base_path %}
 {% capture written_year %}'None'{% endcapture %}
 {% for post in site.posts %}
@@ -16,4 +21,4 @@ redirect_from:
     {% capture written_year %}{{ year }}{% endcapture %}
   {% endif %}
   {% include archive-single.html %}
-{% endfor %}
+{% endfor %}-->
