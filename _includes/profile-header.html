@@ -1,0 +1,37 @@
+{% include base_path %}
+
+<div class="profile-header">
+  <div class="profile-photo">
+    <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" class="profile-photo-img">
+  </div>
+
+  <h1 class="profile-name">{{ site.author.name }}</h1>
+
+  <p class="profile-role">
+    {{ site.author.bio }}
+  </p>
+
+  <div class="profile-links">
+    {% if site.author.email %}
+      <a href="mailto:{{ site.author.email }}" title="Email"><i class="fas fa-fw fa-envelope"></i>Email</a>
+    {% endif %}
+
+    {% if site.author.googlescholar %}
+      <a href="{{ site.author.googlescholar }}" title="Google Scholar"><i class="ai ai-google-scholar"></i>Scholar</a>
+    {% endif %}
+
+    {% if site.author.orcid %}
+      <a href="{{ site.author.orcid }}" title="ORCID"><i class="ai ai-orcid"></i>ORCID</a>
+    {% endif %}
+
+    {% if site.author.researchgate %}
+      <a href="{{ site.author.researchgate }}" title="ResearchGate"><i class="fab fa-fw fa-researchgate"></i>ResearchGate</a>
+    {% endif %}
+
+    {% if site.author.github %}
+      <a href="{{ site.author.github }}" title="GitHub"><i class="fab fa-fw fa-github"></i>GitHub</a>
+    {% endif %}
+  </div>
+
+  <hr class="profile-divider">
+</div>

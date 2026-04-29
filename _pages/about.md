@@ -1,11 +1,13 @@
 ---
 permalink: /
-title: "Academic personal website"
-author_profile: true
+layout: noside
+author_profile: false
 redirect_from: 
   - /about/
   - /about.html
 ---
+
+{% include profile-header.html %}
 
 Recent News
 ======
