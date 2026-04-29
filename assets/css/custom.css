@@ -449,6 +449,50 @@ h1, h2, h3, h4, h5, h6 {
   margin: 30px 0;
 }
 
+/* Portfolio items on about page */
+.portfolio-item {
+  margin-bottom: 30px;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.portfolio-item h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.portfolio-item p {
+  margin: 8px 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Teaching items on about page */
+.teaching-item {
+  margin-bottom: 25px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.teaching-item h3 {
+  margin: 0 0 6px;
+  color: #333;
+  font-size: 16px;
+}
+
+.teaching-item p {
+  margin: 4px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Timeline section on about page */
+.timeline-section {
+  margin-top: 20px;
+}
+
 /* Print styles */
 @media print {
   .masthead,
