@@ -5,35 +5,59 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{https://www.researchgate.net/profile/Jean-Vargas}}">my Research Gate profile</a>.</div>
-{% endif %}
+<div class="wordwrap">
+  <p>You can also find my articles on <a href="https://www.researchgate.net/profile/Jean-Vargas">my Research Gate profile</a> or <a href="https://scholar.google.com/citations?user=TC-UZDAAAAAJ">Google Scholar</a>.</p>
+</div>
 
+<h2>Publications</h2>
 
-<!--
-{% include base_path %} -->
-
-<!-- New style rendering if publication categories are defined -->
-<!--
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
+<div class="publications-list">
   {% for post in site.publications reversed %}
-    {% include archive-single.html %}
+    <div class="pub-item">
+      <div class="pub-title">
+        {% if post.paperurl %}
+          <a href="{{ post.paperurl }}">{{ post.title }}</a>
+        {% else %}
+          {{ post.title }}
+        {% endif %}
+      </div>
+
+      {% if post.citation %}
+        <div class="pub-authors">{{ post.citation | strip_html | truncatewords: 20 }}</div>
+      {% endif %}
+
+      {% if post.venue %}
+        <div class="pub-venue">{{ post.venue }}</div>
+      {% endif %}
+
+      {% if post.excerpt and post.excerpt != "" %}
+        <button class="pub-abstract-btn" onclick="toggleAbstract(this)">Abstract ▼</button>
+        <div class="pub-abstract">{{ post.excerpt }}</div>
+      {% endif %}
+
+      {% if post.paperurl or post.content %}
+        <div class="pub-links">
+          {% if post.paperurl %}
+            <a href="{{ post.paperurl }}">📄 Paper</a>
+          {% endif %}
+          {% if post.content contains "github.com" or post.content contains "GitHub" %}
+            <a href="#" onclick="window.location = document.querySelector('.pub-item').innerHTML.match(/https:\/\/github\.com[^\s<]*/)?.[0]; return false;">💻 Code</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
   {% endfor %}
-{% endif %} -->
+</div>
 
-
-
+<script>
+function toggleAbstract(button) {
+  const abstract = button.nextElementSibling;
+  if (abstract.classList.contains('show')) {
+    abstract.classList.remove('show');
+    button.textContent = 'Abstract ▼';
+  } else {
+    abstract.classList.add('show');
+    button.textContent = 'Abstract ▲';
+  }
+}
+</script>
