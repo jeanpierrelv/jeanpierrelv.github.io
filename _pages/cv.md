@@ -7,8 +7,13 @@ redirect_from:
   - /resume
 ---
 
+<div class="cv-section">
+  <p><strong>Download my CV:</strong></p>
+  <a href="{{ base_path }}/files/Jean_CV.pdf" class="btn btn--primary">📄 Download CV (PDF)</a>
+</div>
+
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my CV on <a href="{{https://www.linkedin.com/in/jean-pierre-lv/}}">my Linkedin profile</a>.</div>
+  <div class="wordwrap">You can also find my CV on <a href="https://www.linkedin.com/in/jean-pierre-lv/">my Linkedin profile</a>.</div>
 {% endif %}
 
 <!--{% include base_path %}
