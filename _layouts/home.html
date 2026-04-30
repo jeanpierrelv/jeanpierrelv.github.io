@@ -9,199 +9,189 @@ layout: compress
   <head>
     {% include head.html %}
     {% include head/custom.html %}
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
     {% include browser-upgrade.html %}
 
+    <!-- Fixed Navbar -->
     <nav class="navbar">
-      <div class="container navbar-container">
+      <div class="container">
         <ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" onclick="scrollToSection('news', event)">News</a></li>
-          <li class="navbar-item"><a class="navbar-link" onclick="scrollToSection('research', event)">Research</a></li>
-          <li class="navbar-item"><a class="navbar-link" onclick="scrollToSection('publications', event)">Publications</a></li>
-          <li class="navbar-item"><a class="navbar-link" onclick="scrollToSection('teaching', event)">Teaching</a></li>
-          <li class="navbar-item"><a class="navbar-link" onclick="scrollToSection('timeline', event)">Timeline</a></li>
+          <li><a class="navbar-link" onclick="scrollToSection('news', event)">News</a></li>
+          <li><a class="navbar-link" onclick="scrollToSection('research', event)">Research</a></li>
+          <li><a class="navbar-link" onclick="scrollToSection('publications', event)">Publications</a></li>
+          <li><a class="navbar-link" onclick="scrollToSection('teaching', event)">Teaching</a></li>
+          <li><a class="navbar-link" onclick="scrollToSection('timeline', event)">Timeline</a></li>
         </ul>
       </div>
     </nav>
 
+    <!-- Main Content -->
     <div class="main-content">
       <div class="container">
-        <!-- Profile Section -->
-        <table class="profile-table" style="margin-top: 40px; margin-bottom: 40px;">
-          <tr>
-            <td class="profile-photo-cell">
-              <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" class="profile-photo">
-            </td>
-            <td class="profile-info-cell">
-              <h1 class="profile-name">{{ site.author.name }}</h1>
-              <p class="profile-bio">{{ site.author.bio }}</p>
-              <div class="profile-links">
-                {% if site.author.email %}
-                  <a href="mailto:{{ site.author.email }}">Email</a> |
-                {% endif %}
-                {% if site.author.googlescholar %}
-                  <a href="{{ site.author.googlescholar }}">Google Scholar</a> |
-                {% endif %}
-                {% if site.author.orcid %}
-                  <a href="{{ site.author.orcid }}">ORCID</a> |
-                {% endif %}
-                {% if site.author.researchgate %}
-                  <a href="{{ site.author.researchgate }}">ResearchGate</a> |
-                {% endif %}
-                {% if site.author.github %}
-                  <a href="{{ site.author.github }}">GitHub</a>
-                {% endif %}
-              </div>
-            </td>
-          </tr>
-        </table>
 
-        <hr class="section-divider">
+        <!-- Profile Header (Centered) -->
+        <div class="profile-header">
+          <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" class="profile-photo-centered">
+
+          <h1 class="profile-name-centered">{{ site.author.name }}</h1>
+
+          <p class="profile-quote">"What is now proved was once only imagined" — William Blake</p>
+
+          <p class="profile-bio-centered">{{ site.author.bio }}</p>
+
+          <div class="profile-links-centered">
+            {% if site.author.email %}
+              <a href="mailto:{{ site.author.email }}">Email</a>
+            {% endif %}
+            {% if site.author.googlescholar %}
+              <a href="{{ site.author.googlescholar }}">Google Scholar</a>
+            {% endif %}
+            {% if site.author.orcid %}
+              <a href="{{ site.author.orcid }}">ORCID</a>
+            {% endif %}
+            {% if site.author.researchgate %}
+              <a href="{{ site.author.researchgate }}">ResearchGate</a>
+            {% endif %}
+            {% if site.author.github %}
+              <a href="{{ site.author.github }}">GitHub</a>
+            {% endif %}
+          </div>
+        </div>
+
+        <hr class="divider">
 
         <!-- News Section -->
         <div id="news" class="section">
-          <h2 class="section-title">News</h2>
-          <div class="news-scroll">
-            <ul class="news-list">
-              <li class="news-item news-item-highlight">
-                <strong>Jan 2026</strong> — Paper accepted at SN Computer Science Journal: "Self-Supervised Learning for Extracting Interpersonal Dynamics in Video Robbery Detection"
-              </li>
-              <li class="news-item news-item-highlight">
-                <strong>Jun 2026</strong> — Substitute Professor, Neural Networks and Deep Learning, UNESP
-              </li>
-              <li class="news-item news-item-highlight">
-                <strong>Jan 2026</strong> — Substitute Professor, Computer Organization and Architecture, UNESP
-              </li>
-              <li class="news-item">
-                <strong>Dec 2024</strong> — Paper published in Foods Journal on non-destructive morphometric measurements of chicken eggs using computer vision
-              </li>
-            </ul>
-          </div>
+          <h2>News</h2>
+          <ul class="news-list">
+            <li><strong>Jan 2026</strong> — Paper accepted at SN Computer Science Journal</li>
+            <li><strong>Jun 2026</strong> — Teaching Neural Networks and Deep Learning, UNESP</li>
+            <li><strong>Jan 2026</strong> — Teaching Computer Organization and Architecture, UNESP</li>
+            <li><strong>Dec 2024</strong> — Paper published in Foods Journal</li>
+          </ul>
         </div>
 
-        <hr class="section-divider">
+        <hr class="divider">
 
         <!-- Research Section -->
         <div id="research" class="section">
-          <h2 class="section-title">Research</h2>
-          <p>I'm a researcher at the Prisma Research Group at the Department of Statistics, Applied Mathematics and Computing at São Paulo State University, working in the area of computer vision with Deep Learning, researching algorithms to obtain morphometric measurements from 3D tomographic images. I specialize in Deep Learning, Computer Vision, and System Identification. My research focuses on Time Series Forecasting and Information Criteria, and I am currently focused on the area of Deep Learning, Computer Vision and Large Language Models to develop innovative AI solutions.</p>
+          <h2>Research</h2>
+          <p>I am a researcher at the Prisma Research Group, Department of Statistics, Applied Mathematics and Computing, São Paulo State University. My research focuses on computer vision with deep learning, algorithms for morphometric measurements from 3D tomographic images, and large language models for AI solutions.</p>
 
-          <p><strong>Interests:</strong> Computer Vision • Deep Learning • Time Series Forecasting • Information Retrieval • LLMs • Control Systems • Robotics</p>
+          <p><strong>Main areas:</strong> Computer Vision, Deep Learning, Time Series Forecasting, Information Retrieval, Large Language Models, Control Systems, Robotics.</p>
         </div>
 
-        <hr class="section-divider">
+        <hr class="divider">
 
         <!-- Publications Section -->
         <div id="publications" class="section">
-          <h2 class="section-title">Publications</h2>
+          <h2>Publications</h2>
 
           <div class="tabs">
-            <button class="tab-button tab-button-active" onclick="switchTab('recent', event)">Recent</button>
-            <button class="tab-button" onclick="switchTab('all', event)">All</button>
+            <button class="tab-btn tab-btn-active" onclick="switchTab('recent', event)">Recent</button>
+            <button class="tab-btn" onclick="switchTab('all', event)">All</button>
           </div>
 
-          <div id="tab-recent" class="tab-content tab-content-active">
-            <div class="publications-scroll">
-              {% for post in site.publications reversed limit:3 %}
-                <div class="publication-item">
-                  <div class="publication-title">
-                    {% if post.paperurl %}
-                      <a href="{{ post.paperurl }}">{{ post.title }}</a>
-                    {% else %}
-                      {{ post.title }}
-                    {% endif %}
-                  </div>
-                  {% if post.citation %}
-                    <div class="publication-authors">{{ post.citation | strip_html }}</div>
-                  {% endif %}
-                  {% if post.venue %}
-                    <div class="publication-venue">{{ post.venue }}</div>
-                  {% endif %}
-                  {% if post.excerpt %}
-                    <button class="toggle-button" onclick="toggleblock(this, event)">Abstract ▼</button>
-                    <div class="publication-abstract" style="display:none;">
-                      {{ post.excerpt }}
-                    </div>
+          <!-- Recent Tab -->
+          <div id="tab-recent" class="tab-pane tab-pane-active">
+            {% for post in site.publications reversed limit:3 %}
+              <div class="publication-entry">
+                <div class="pub-title">
+                  {% if post.paperurl %}
+                    <a href="{{ post.paperurl }}">{{ post.title }}</a>
+                  {% else %}
+                    {{ post.title }}
                   {% endif %}
                 </div>
-              {% endfor %}
-            </div>
+                {% if post.citation %}
+                  <div class="pub-meta">{{ post.citation | strip_html }}</div>
+                {% endif %}
+                {% if post.venue %}
+                  <div class="pub-venue">{{ post.venue }}</div>
+                {% endif %}
+                {% if post.excerpt %}
+                  <button class="abstract-btn" onclick="toggleAbstract(this, event)">Abstract</button>
+                  <div class="pub-abstract" style="display:none;">{{ post.excerpt }}</div>
+                {% endif %}
+              </div>
+            {% endfor %}
           </div>
 
-          <div id="tab-all" class="tab-content">
-            <div class="publications-scroll">
-              {% for post in site.publications reversed %}
-                <div class="publication-item">
-                  <div class="publication-title">
-                    {% if post.paperurl %}
-                      <a href="{{ post.paperurl }}">{{ post.title }}</a>
-                    {% else %}
-                      {{ post.title }}
-                    {% endif %}
-                  </div>
-                  {% if post.citation %}
-                    <div class="publication-authors">{{ post.citation | strip_html }}</div>
-                  {% endif %}
-                  {% if post.venue %}
-                    <div class="publication-venue">{{ post.venue }}</div>
-                  {% endif %}
-                  {% if post.excerpt %}
-                    <button class="toggle-button" onclick="toggleblock(this, event)">Abstract ▼</button>
-                    <div class="publication-abstract" style="display:none;">
-                      {{ post.excerpt }}
-                    </div>
+          <!-- All Tab -->
+          <div id="tab-all" class="tab-pane">
+            {% for post in site.publications reversed %}
+              <div class="publication-entry">
+                <div class="pub-title">
+                  {% if post.paperurl %}
+                    <a href="{{ post.paperurl }}">{{ post.title }}</a>
+                  {% else %}
+                    {{ post.title }}
                   {% endif %}
                 </div>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-
-        <hr class="section-divider">
-
-        <!-- Teaching Section -->
-        <div id="teaching" class="section">
-          <h2 class="section-title">Teaching</h2>
-          {% for post in site.teaching reversed %}
-            <div class="teaching-item">
-              <strong>{{ post.title }}</strong> ({{ post.date | date: "%Y-%S%m" }})
-              <br>{{ post.venue }}
-            </div>
-          {% endfor %}
-        </div>
-
-        <hr class="section-divider">
-
-        <!-- Timeline Section -->
-        <div id="timeline" class="section">
-          <h2 class="section-title">Timeline</h2>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-year">2010</div>
-              <div class="timeline-content">Bachelor's in Electronic Engineering, San Luis Gonzaga National University, Peru</div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-year">2015</div>
-              <div class="timeline-content">Master's in Electrical Engineering, UNICAMP, Brazil</div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-year">2023</div>
-              <div class="timeline-content">Researcher, Prisma Research Group, UNESP</div>
-            </div>
-            {% for post in site.teaching reversed %}
-              <div class="timeline-item">
-                <div class="timeline-year">{{ post.date | date: "%Y" }}</div>
-                <div class="timeline-content">{{ post.title }}, {{ post.venue }}</div>
+                {% if post.citation %}
+                  <div class="pub-meta">{{ post.citation | strip_html }}</div>
+                {% endif %}
+                {% if post.venue %}
+                  <div class="pub-venue">{{ post.venue }}</div>
+                {% endif %}
+                {% if post.excerpt %}
+                  <button class="abstract-btn" onclick="toggleAbstract(this, event)">Abstract</button>
+                  <div class="pub-abstract" style="display:none;">{{ post.excerpt }}</div>
+                {% endif %}
               </div>
             {% endfor %}
           </div>
         </div>
+
+        <hr class="divider">
+
+        <!-- Teaching Section -->
+        <div id="teaching" class="section">
+          <h2>Teaching</h2>
+          <ul class="teaching-list">
+            {% for post in site.teaching reversed %}
+              <li>
+                <strong>{{ post.title }}</strong> ({{ post.date | date: "%Y" }})
+                <br>{{ post.venue }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Timeline Section -->
+        <div id="timeline" class="section">
+          <h2>Timeline</h2>
+          <div class="timeline-list">
+            <div class="timeline-entry">
+              <div class="timeline-year">2010</div>
+              <div class="timeline-text">Bachelor's in Electronic Engineering, San Luis Gonzaga National University, Peru</div>
+            </div>
+            <div class="timeline-entry">
+              <div class="timeline-year">2015</div>
+              <div class="timeline-text">Master's in Electrical Engineering, UNICAMP, Brazil</div>
+            </div>
+            <div class="timeline-entry">
+              <div class="timeline-year">2023</div>
+              <div class="timeline-text">Researcher, Prisma Research Group, UNESP</div>
+            </div>
+            {% for post in site.teaching reversed %}
+              <div class="timeline-entry">
+                <div class="timeline-year">{{ post.date | date: "%Y" }}</div>
+                <div class="timeline-text">{{ post.title }}, {{ post.venue }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
       </div>
     </div>
 
+    <!-- Footer -->
     <div class="page__footer">
       <footer>
         {% include footer/custom.html %}
@@ -212,57 +202,42 @@ layout: compress
     {% include scripts.html %}
 
     <script>
-      // Smooth scroll to sections
-      function scrollToSection(sectionId, event) {
-        if (event) event.preventDefault();
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const navHeight = document.querySelector('.navbar').offsetHeight;
-          const elementPosition = element.offsetTop - navHeight - 20;
+      function scrollToSection(id, e) {
+        e.preventDefault();
+        const el = document.getElementById(id);
+        if (el) {
+          const offset = 80;
           window.scrollTo({
-            top: elementPosition,
+            top: el.offsetTop - offset,
             behavior: 'smooth'
           });
         }
       }
 
-      // Toggle abstract visibility
-      function toggleblock(button, event) {
-        if (event) event.preventDefault();
-        const abstract = button.nextElementSibling;
-        if (abstract && abstract.classList.contains('publication-abstract')) {
+      function toggleAbstract(btn, e) {
+        e.preventDefault();
+        const abstract = btn.nextElementSibling;
+        if (abstract) {
           if (abstract.style.display === 'none') {
             abstract.style.display = 'block';
-            button.textContent = 'Abstract ▲';
+            btn.textContent = 'Hide Abstract';
           } else {
             abstract.style.display = 'none';
-            button.textContent = 'Abstract ▼';
+            btn.textContent = 'Abstract';
           }
         }
       }
 
-      // Switch between tabs
-      function switchTab(tabName, event) {
-        if (event) event.preventDefault();
+      function switchTab(name, e) {
+        e.preventDefault();
 
         // Hide all tabs
-        document.querySelectorAll('.tab-content').forEach(tab => {
-          tab.classList.remove('tab-content-active');
-        });
+        document.querySelectorAll('.tab-pane').forEach(t => t.classList.remove('tab-pane-active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('tab-btn-active'));
 
-        // Remove active class from buttons
-        document.querySelectorAll('.tab-button').forEach(btn => {
-          btn.classList.remove('tab-button-active');
-        });
-
-        // Show selected tab and mark button as active
-        const tabElement = document.getElementById('tab-' + tabName);
-        if (tabElement) {
-          tabElement.classList.add('tab-content-active');
-        }
-
-        // Mark clicked button as active
-        event.target.classList.add('tab-button-active');
+        // Show selected
+        document.getElementById('tab-' + name).classList.add('tab-pane-active');
+        e.target.classList.add('tab-btn-active');
       }
     </script>
   </body>
