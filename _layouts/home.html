@@ -9,7 +9,7 @@ layout: compress
   <head>
     {% include head.html %}
     {% include head/custom.html %}
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -31,32 +31,41 @@ layout: compress
     <div class="main-content">
       <div class="container">
 
-        <!-- Profile Header (Centered) -->
-        <div class="profile-header">
-          <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" class="profile-photo">
+        <!-- Profile Header (2-Column Table) -->
+        <table class="profile-table">
+          <tr>
+            <td class="profile-photo-cell">
+              <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" class="profile-photo">
 
-          <h1 class="profile-name">{{ site.author.name }}</h1>
+              <p class="profile-links">
+                {% if site.author.email %}
+                  <a href="mailto:{{ site.author.email }}">Email</a>
+                {% endif %}
+                {% if site.author.googlescholar %}
+                  | <a href="{{ site.author.googlescholar }}">Google Scholar</a>
+                {% endif %}
+                {% if site.author.orcid %}
+                  | <a href="{{ site.author.orcid }}">ORCID</a>
+                {% endif %}
+                {% if site.author.researchgate %}
+                  | <a href="{{ site.author.researchgate }}">ResearchGate</a>
+                {% endif %}
+                {% if site.author.github %}
+                  | <a href="{{ site.author.github }}">GitHub</a>
+                {% endif %}
+              </p>
+            </td>
+            <td class="profile-bio-cell">
+              <h1 class="profile-name">{{ site.author.name }}</h1>
 
-          <p class="profile-location">{{ site.author.location }}</p>
+              <p class="profile-location">{{ site.author.location }}</p>
 
-          <p class="profile-links">
-            {% if site.author.email %}
-              <a href="mailto:{{ site.author.email }}">Email</a>
-            {% endif %}
-            {% if site.author.googlescholar %}
-              | <a href="{{ site.author.googlescholar }}">Google Scholar</a>
-            {% endif %}
-            {% if site.author.orcid %}
-              | <a href="{{ site.author.orcid }}">ORCID</a>
-            {% endif %}
-            {% if site.author.researchgate %}
-              | <a href="{{ site.author.researchgate }}">ResearchGate</a>
-            {% endif %}
-            {% if site.author.github %}
-              | <a href="{{ site.author.github }}">GitHub</a>
-            {% endif %}
-          </p>
-        </div>
+              {% if site.author.bio %}
+              <p class="profile-bio">{{ site.author.bio }}</p>
+              {% endif %}
+            </td>
+          </tr>
+        </table>
 
         <hr class="divider">
 
@@ -87,22 +96,34 @@ layout: compress
         <div id="timeline" class="section">
           <h2 class="section-heading">Timeline</h2>
           <div class="timeline-content">
-            <div class="timeline-entry">
+            <div class="timeline-entry timeline-entry-left">
               <div class="tl-year">2010</div>
               <div class="tl-text"><strong>Bachelor's in Electronic Engineering</strong><br>San Luis Gonzaga National University, Peru</div>
+              <div class="tl-dot"></div>
             </div>
-            <div class="timeline-entry">
+            <div class="timeline-entry timeline-entry-right">
               <div class="tl-year">2015</div>
               <div class="tl-text"><strong>Master's in Electrical Engineering</strong><br>UNICAMP, Brazil</div>
+              <div class="tl-dot"></div>
             </div>
-            <div class="timeline-entry">
+            <div class="timeline-entry timeline-entry-left">
               <div class="tl-year">2023</div>
               <div class="tl-text"><strong>Researcher</strong><br>Prisma Research Group, UNESP, Brazil</div>
+              <div class="tl-dot"></div>
             </div>
+            {% assign entry_count = site.teaching | size %}
             {% for post in site.teaching reversed %}
-            <div class="timeline-entry">
+              {% capture entry_side %}
+                {% if forloop.index0 | modulo: 2 == 0 %}
+                  timeline-entry-right
+                {% else %}
+                  timeline-entry-left
+                {% endif %}
+              {% endcapture %}
+            <div class="timeline-entry {{ entry_side }}">
               <div class="tl-year">{{ post.date | date: "%Y" }}</div>
               <div class="tl-text"><strong>{{ post.title }}</strong><br>{{ post.venue }}</div>
+              <div class="tl-dot"></div>
             </div>
             {% endfor %}
           </div>
@@ -115,14 +136,19 @@ layout: compress
           <h2 class="section-heading">Publications</h2>
 
           <div class="pub-tabs">
-            <button class="pub-tab-btn pub-tab-active" onclick="switchTab('recent', event)">Recent</button>
+            <button class="pub-tab-btn pub-tab-active" onclick="switchTab('recent', event)">Selected</button>
             <button class="pub-tab-btn" onclick="switchTab('all', event)">All</button>
           </div>
 
-          <!-- Recent Publications -->
+          <!-- Selected Publications -->
           <div id="tab-recent" class="pub-tab-pane pub-tab-active">
-            {% for post in site.publications reversed limit:3 %}
+            {% for post in site.publications reversed limit:4 %}
             <div class="pub-card">
+              {% if post.image %}
+              <div class="pub-image">
+                <img src="{{ post.image }}" alt="{{ post.title }}" class="pub-img">
+              </div>
+              {% endif %}
               <div class="pub-content">
                 <div class="pub-title">
                   {% if post.paperurl %}
@@ -152,6 +178,11 @@ layout: compress
           <div id="tab-all" class="pub-tab-pane">
             {% for post in site.publications reversed %}
             <div class="pub-card">
+              {% if post.image %}
+              <div class="pub-image">
+                <img src="{{ post.image }}" alt="{{ post.title }}" class="pub-img">
+              </div>
+              {% endif %}
               <div class="pub-content">
                 <div class="pub-title">
                   {% if post.paperurl %}
