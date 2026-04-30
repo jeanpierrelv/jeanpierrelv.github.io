@@ -9,7 +9,7 @@ layout: compress
   <head>
     {% include head.html %}
     {% include head/custom.html %}
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -21,9 +21,8 @@ layout: compress
         <ul class="navbar-list">
           <li><a class="navbar-link" onclick="scrollToSection('news', event)">News</a></li>
           <li><a class="navbar-link" onclick="scrollToSection('research', event)">Research</a></li>
-          <li><a class="navbar-link" onclick="scrollToSection('publications', event)">Publications</a></li>
-          <li><a class="navbar-link" onclick="scrollToSection('teaching', event)">Teaching</a></li>
           <li><a class="navbar-link" onclick="scrollToSection('timeline', event)">Timeline</a></li>
+          <li><a class="navbar-link" onclick="scrollToSection('publications', event)">Publications</a></li>
         </ul>
       </div>
     </nav>
@@ -34,156 +33,147 @@ layout: compress
 
         <!-- Profile Header (Centered) -->
         <div class="profile-header">
-          <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" class="profile-photo-centered">
+          <img src="{{ site.author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ site.author.name }}" class="profile-photo">
 
-          <h1 class="profile-name-centered">{{ site.author.name }}</h1>
+          <h1 class="profile-name">{{ site.author.name }}</h1>
 
-          <p class="profile-quote">"What is now proved was once only imagined" — William Blake</p>
+          <p class="profile-location">{{ site.author.location }}</p>
 
-          <p class="profile-bio-centered">{{ site.author.bio }}</p>
-
-          <div class="profile-links-centered">
+          <p class="profile-links">
             {% if site.author.email %}
               <a href="mailto:{{ site.author.email }}">Email</a>
             {% endif %}
             {% if site.author.googlescholar %}
-              <a href="{{ site.author.googlescholar }}">Google Scholar</a>
+              | <a href="{{ site.author.googlescholar }}">Google Scholar</a>
             {% endif %}
             {% if site.author.orcid %}
-              <a href="{{ site.author.orcid }}">ORCID</a>
+              | <a href="{{ site.author.orcid }}">ORCID</a>
             {% endif %}
             {% if site.author.researchgate %}
-              <a href="{{ site.author.researchgate }}">ResearchGate</a>
+              | <a href="{{ site.author.researchgate }}">ResearchGate</a>
             {% endif %}
             {% if site.author.github %}
-              <a href="{{ site.author.github }}">GitHub</a>
+              | <a href="{{ site.author.github }}">GitHub</a>
             {% endif %}
-          </div>
+          </p>
         </div>
 
         <hr class="divider">
 
         <!-- News Section -->
         <div id="news" class="section">
-          <h2>News</h2>
-          <ul class="news-list">
-            <li><strong>Jan 2026</strong> — Paper accepted at SN Computer Science Journal</li>
-            <li><strong>Jun 2026</strong> — Teaching Neural Networks and Deep Learning, UNESP</li>
-            <li><strong>Jan 2026</strong> — Teaching Computer Organization and Architecture, UNESP</li>
-            <li><strong>Dec 2024</strong> — Paper published in Foods Journal</li>
-          </ul>
+          <h2 class="section-heading">News</h2>
+          <div class="news-content">
+            <ul class="items-list">
+              <li><span class="date">Jan 2026</span> Paper accepted at SN Computer Science Journal: "Self-Supervised Learning for Extracting Interpersonal Dynamics in Video Robbery Detection"</li>
+              <li><span class="date">Jun 2026</span> Teaching Neural Networks and Deep Learning, UNESP</li>
+              <li><span class="date">Jan 2026</span> Teaching Computer Organization and Architecture, UNESP</li>
+              <li><span class="date">Dec 2024</span> Paper published in Foods Journal on non-destructive morphometric measurements of chicken eggs</li>
+            </ul>
+          </div>
         </div>
 
         <hr class="divider">
 
         <!-- Research Section -->
         <div id="research" class="section">
-          <h2>Research</h2>
-          <p>I am a researcher at the Prisma Research Group, Department of Statistics, Applied Mathematics and Computing, São Paulo State University. My research focuses on computer vision with deep learning, algorithms for morphometric measurements from 3D tomographic images, and large language models for AI solutions.</p>
-
-          <p><strong>Main areas:</strong> Computer Vision, Deep Learning, Time Series Forecasting, Information Retrieval, Large Language Models, Control Systems, Robotics.</p>
-        </div>
-
-        <hr class="divider">
-
-        <!-- Publications Section -->
-        <div id="publications" class="section">
-          <h2>Publications</h2>
-
-          <div class="tabs">
-            <button class="tab-btn tab-btn-active" onclick="switchTab('recent', event)">Recent</button>
-            <button class="tab-btn" onclick="switchTab('all', event)">All</button>
-          </div>
-
-          <!-- Recent Tab -->
-          <div id="tab-recent" class="tab-pane tab-pane-active">
-            {% for post in site.publications reversed limit:3 %}
-              <div class="publication-entry">
-                <div class="pub-title">
-                  {% if post.paperurl %}
-                    <a href="{{ post.paperurl }}">{{ post.title }}</a>
-                  {% else %}
-                    {{ post.title }}
-                  {% endif %}
-                </div>
-                {% if post.citation %}
-                  <div class="pub-meta">{{ post.citation | strip_html }}</div>
-                {% endif %}
-                {% if post.venue %}
-                  <div class="pub-venue">{{ post.venue }}</div>
-                {% endif %}
-                {% if post.excerpt %}
-                  <button class="abstract-btn" onclick="toggleAbstract(this, event)">Abstract</button>
-                  <div class="pub-abstract" style="display:none;">{{ post.excerpt }}</div>
-                {% endif %}
-              </div>
-            {% endfor %}
-          </div>
-
-          <!-- All Tab -->
-          <div id="tab-all" class="tab-pane">
-            {% for post in site.publications reversed %}
-              <div class="publication-entry">
-                <div class="pub-title">
-                  {% if post.paperurl %}
-                    <a href="{{ post.paperurl }}">{{ post.title }}</a>
-                  {% else %}
-                    {{ post.title }}
-                  {% endif %}
-                </div>
-                {% if post.citation %}
-                  <div class="pub-meta">{{ post.citation | strip_html }}</div>
-                {% endif %}
-                {% if post.venue %}
-                  <div class="pub-venue">{{ post.venue }}</div>
-                {% endif %}
-                {% if post.excerpt %}
-                  <button class="abstract-btn" onclick="toggleAbstract(this, event)">Abstract</button>
-                  <div class="pub-abstract" style="display:none;">{{ post.excerpt }}</div>
-                {% endif %}
-              </div>
-            {% endfor %}
-          </div>
-        </div>
-
-        <hr class="divider">
-
-        <!-- Teaching Section -->
-        <div id="teaching" class="section">
-          <h2>Teaching</h2>
-          <ul class="teaching-list">
-            {% for post in site.teaching reversed %}
-              <li>
-                <strong>{{ post.title }}</strong> ({{ post.date | date: "%Y" }})
-                <br>{{ post.venue }}
-              </li>
-            {% endfor %}
-          </ul>
+          <h2 class="section-heading">Research</h2>
+          <p class="research-text">I am a researcher at the Prisma Research Group, Department of Statistics, Applied Mathematics and Computing, São Paulo State University. My research focuses on computer vision with deep learning, algorithms for morphometric measurements from 3D tomographic images, and large language models. I specialize in Deep Learning, Computer Vision, Time Series Forecasting, Information Retrieval, and Control Systems.</p>
         </div>
 
         <hr class="divider">
 
         <!-- Timeline Section -->
         <div id="timeline" class="section">
-          <h2>Timeline</h2>
-          <div class="timeline-list">
+          <h2 class="section-heading">Timeline</h2>
+          <div class="timeline-content">
             <div class="timeline-entry">
-              <div class="timeline-year">2010</div>
-              <div class="timeline-text">Bachelor's in Electronic Engineering, San Luis Gonzaga National University, Peru</div>
+              <div class="tl-year">2010</div>
+              <div class="tl-text"><strong>Bachelor's in Electronic Engineering</strong><br>San Luis Gonzaga National University, Peru</div>
             </div>
             <div class="timeline-entry">
-              <div class="timeline-year">2015</div>
-              <div class="timeline-text">Master's in Electrical Engineering, UNICAMP, Brazil</div>
+              <div class="tl-year">2015</div>
+              <div class="tl-text"><strong>Master's in Electrical Engineering</strong><br>UNICAMP, Brazil</div>
             </div>
             <div class="timeline-entry">
-              <div class="timeline-year">2023</div>
-              <div class="timeline-text">Researcher, Prisma Research Group, UNESP</div>
+              <div class="tl-year">2023</div>
+              <div class="tl-text"><strong>Researcher</strong><br>Prisma Research Group, UNESP, Brazil</div>
             </div>
             {% for post in site.teaching reversed %}
-              <div class="timeline-entry">
-                <div class="timeline-year">{{ post.date | date: "%Y" }}</div>
-                <div class="timeline-text">{{ post.title }}, {{ post.venue }}</div>
+            <div class="timeline-entry">
+              <div class="tl-year">{{ post.date | date: "%Y" }}</div>
+              <div class="tl-text"><strong>{{ post.title }}</strong><br>{{ post.venue }}</div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Publications Section -->
+        <div id="publications" class="section">
+          <h2 class="section-heading">Publications</h2>
+
+          <div class="pub-tabs">
+            <button class="pub-tab-btn pub-tab-active" onclick="switchTab('recent', event)">Recent</button>
+            <button class="pub-tab-btn" onclick="switchTab('all', event)">All</button>
+          </div>
+
+          <!-- Recent Publications -->
+          <div id="tab-recent" class="pub-tab-pane pub-tab-active">
+            {% for post in site.publications reversed limit:3 %}
+            <div class="pub-card">
+              <div class="pub-content">
+                <div class="pub-title">
+                  {% if post.paperurl %}
+                  <a href="{{ post.paperurl }}" target="_blank">{{ post.title }}</a>
+                  {% else %}
+                  {{ post.title }}
+                  {% endif %}
+                </div>
+                {% if post.citation %}
+                <div class="pub-authors">{{ post.citation | strip_html }}</div>
+                {% endif %}
+                {% if post.venue %}
+                <div class="pub-venue">{{ post.venue }}</div>
+                {% endif %}
+                {% if post.excerpt %}
+                <button class="toggle-btn" onclick="toggleAbstract(this, event)">abstract</button>
+                <div class="pub-abstract" style="display:none;">
+                  {{ post.excerpt }}
+                </div>
+                {% endif %}
               </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <!-- All Publications -->
+          <div id="tab-all" class="pub-tab-pane">
+            {% for post in site.publications reversed %}
+            <div class="pub-card">
+              <div class="pub-content">
+                <div class="pub-title">
+                  {% if post.paperurl %}
+                  <a href="{{ post.paperurl }}" target="_blank">{{ post.title }}</a>
+                  {% else %}
+                  {{ post.title }}
+                  {% endif %}
+                </div>
+                {% if post.citation %}
+                <div class="pub-authors">{{ post.citation | strip_html }}</div>
+                {% endif %}
+                {% if post.venue %}
+                <div class="pub-venue">{{ post.venue }}</div>
+                {% endif %}
+                {% if post.excerpt %}
+                <button class="toggle-btn" onclick="toggleAbstract(this, event)">abstract</button>
+                <div class="pub-abstract" style="display:none;">
+                  {{ post.excerpt }}
+                </div>
+                {% endif %}
+              </div>
+            </div>
             {% endfor %}
           </div>
         </div>
@@ -206,9 +196,8 @@ layout: compress
         e.preventDefault();
         const el = document.getElementById(id);
         if (el) {
-          const offset = 80;
           window.scrollTo({
-            top: el.offsetTop - offset,
+            top: el.offsetTop - 70,
             behavior: 'smooth'
           });
         }
@@ -216,28 +205,24 @@ layout: compress
 
       function toggleAbstract(btn, e) {
         e.preventDefault();
-        const abstract = btn.nextElementSibling;
-        if (abstract) {
-          if (abstract.style.display === 'none') {
-            abstract.style.display = 'block';
-            btn.textContent = 'Hide Abstract';
+        const abs = btn.nextElementSibling;
+        if (abs && abs.classList.contains('pub-abstract')) {
+          if (abs.style.display === 'none') {
+            abs.style.display = 'block';
+            btn.textContent = 'hide abstract';
           } else {
-            abstract.style.display = 'none';
-            btn.textContent = 'Abstract';
+            abs.style.display = 'none';
+            btn.textContent = 'abstract';
           }
         }
       }
 
       function switchTab(name, e) {
         e.preventDefault();
-
-        // Hide all tabs
-        document.querySelectorAll('.tab-pane').forEach(t => t.classList.remove('tab-pane-active'));
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('tab-btn-active'));
-
-        // Show selected
-        document.getElementById('tab-' + name).classList.add('tab-pane-active');
-        e.target.classList.add('tab-btn-active');
+        document.querySelectorAll('.pub-tab-pane').forEach(t => t.classList.remove('pub-tab-active'));
+        document.querySelectorAll('.pub-tab-btn').forEach(b => b.classList.remove('pub-tab-active'));
+        document.getElementById('tab-' + name).classList.add('pub-tab-active');
+        e.target.classList.add('pub-tab-active');
       }
     </script>
   </body>
