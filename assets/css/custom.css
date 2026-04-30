@@ -216,6 +216,18 @@ strong {
 .timeline-content {
   font-size: 16px;
   line-height: 1.9;
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 8px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-blue), #e8e8e8);
 }
 
 .timeline-entry {
@@ -223,6 +235,19 @@ strong {
   gap: 30px;
   margin-bottom: 28px;
   position: relative;
+}
+
+.timeline-entry::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border: 3px solid var(--primary-blue);
+  border-radius: 50%;
+  margin-left: 8px;
 }
 
 .timeline-entry:last-child {
@@ -448,9 +473,25 @@ strong {
     margin: 35px 0;
   }
 
+  .timeline-content {
+    padding-left: 35px;
+  }
+
+  .timeline-content::before {
+    left: 12px;
+  }
+
   .timeline-entry {
     gap: 20px;
     margin-bottom: 20px;
+  }
+
+  .timeline-entry::before {
+    left: -35px;
+    width: 10px;
+    height: 10px;
+    border-width: 2px;
+    margin-left: 7px;
   }
 
   .tl-year {
