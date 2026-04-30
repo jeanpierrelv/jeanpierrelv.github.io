@@ -8,6 +8,7 @@ date: 2025-10-01
 venue: 'Software Engineering: Emerging Trends and Practices in System Development (Springer Nature)'
 paperurl: 'https://doi.org/10.1007/978-3-032-00236-5_11'
 citation: 'Jean Pierre B. López Vargas, Marina Paredes, Alex Midware Rodriguez Ruelas, Renzo J. Chirinos, Marcelo Vinicius de Paula. (2025). &quot;Disease Detection in Grape Cultivation Based on Deep Learning Algorithms.&quot; <i>Software Engineering: Emerging Trends and Practices in System Development</i>. Springer Nature Switzerland.'
+image: '/images/publications/grape-disease.png'
 ---
 
 Recent advancements in deep learning have significantly enhanced image recognition capabilities, presenting substantial opportunities for applications in agriculture, such as disease detection. Grapevines flourish in Peru's warm tropical regions but are vulnerable to climate fluctuations and pest infestations, posing risks to crop yields and export value. 

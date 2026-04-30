@@ -8,6 +8,7 @@ date: 2024-12-01
 venue: 'Foods Journal'
 paperurl: 'https://doi.org/10.3390/foods13244039'
 citation: 'Jean Pierre B. López Vargas, Katariny Lima de Abreu, Davi Duarte de Paula, Denis Salvadeo, Lilian Francisco Arantes de Souza, Carlos Bôa-Viagem Rabello. (2024). &quot;Alternative Non-Destructive Approach for Estimating Morphometric Measurements of Chicken Eggs from Tomographic Images with Computer Vision.&quot; <i>Foods Journal</i>.'
+image: '/images/publications/chicken-egg.png'
 ---
 
 The egg has natural barriers that prevent microbiological contamination and promote food safety. The use of non-destructive methods to obtain morphometric measurements of chicken eggs has the potential to replace traditional invasive techniques, offering greater efficiency and accuracy.
