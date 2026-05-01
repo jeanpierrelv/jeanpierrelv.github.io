@@ -74,8 +74,8 @@ layout: compress
           <h2 class="section-heading">News</h2>
           <div class="news-content">
             <ul class="items-list">
-              <li><span class="date">Jan 2026</span> Paper accepted at SN Computer Science Journal: "Self-Supervised Learning for Extracting Interpersonal Dynamics in Video Robbery Detection"</li>
               <li><span class="date">Jun 2026</span> Teaching Neural Networks and Deep Learning, UNESP</li>
+              <li><span class="date">Jan 2026</span> Paper accepted at SN Computer Science Journal: "Self-Supervised Learning for Extracting Interpersonal Dynamics in Video Robbery Detection"</li>
               <li><span class="date">Jan 2026</span> Teaching Computer Organization and Architecture, UNESP</li>
               <li><span class="date">Dec 2024</span> Paper published in Foods Journal on non-destructive morphometric measurements of chicken eggs</li>
             </ul>
@@ -96,25 +96,10 @@ layout: compress
         <div id="timeline" class="section">
           <h2 class="section-heading">Timeline</h2>
           <div class="timeline-content">
-            <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">2010</div>
-              <div class="tl-text"><strong>Bachelor's in Electronic Engineering</strong><br>San Luis Gonzaga National University, Peru</div>
-              <div class="tl-dot"></div>
-            </div>
-            <div class="timeline-entry timeline-entry-right">
-              <div class="tl-year">2015</div>
-              <div class="tl-text"><strong>Master's in Electrical Engineering</strong><br>UNICAMP, Brazil</div>
-              <div class="tl-dot"></div>
-            </div>
-            <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">2023</div>
-              <div class="tl-text"><strong>Researcher</strong><br>Prisma Research Group, UNESP, Brazil</div>
-              <div class="tl-dot"></div>
-            </div>
-            {% assign entry_count = site.teaching | size %}
+            {% assign entry_index = 0 %}
             {% for post in site.teaching reversed %}
               {% capture entry_side %}
-                {% if forloop.index0 | modulo: 2 == 0 %}
+                {% if entry_index | modulo: 2 == 0 %}
                   timeline-entry-right
                 {% else %}
                   timeline-entry-left
@@ -125,7 +110,23 @@ layout: compress
               <div class="tl-text"><strong>{{ post.title }}</strong><br>{{ post.venue }}</div>
               <div class="tl-dot"></div>
             </div>
+              {% assign entry_index = entry_index | plus: 1 %}
             {% endfor %}
+            <div class="timeline-entry timeline-entry-right">
+              <div class="tl-year">2023</div>
+              <div class="tl-text"><strong>Researcher</strong><br>Prisma Research Group, UNESP, Brazil</div>
+              <div class="tl-dot"></div>
+            </div>
+            <div class="timeline-entry timeline-entry-left">
+              <div class="tl-year">2015</div>
+              <div class="tl-text"><strong>Master's in Electrical Engineering</strong><br>UNICAMP, Brazil</div>
+              <div class="tl-dot"></div>
+            </div>
+            <div class="timeline-entry timeline-entry-right">
+              <div class="tl-year">2010</div>
+              <div class="tl-text"><strong>Bachelor's in Electronic Engineering</strong><br>San Luis Gonzaga National University, Peru</div>
+              <div class="tl-dot"></div>
+            </div>
           </div>
         </div>
 
