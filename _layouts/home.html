@@ -106,24 +106,34 @@ layout: compress
                 {% endif %}
               {% endcapture %}
             <div class="timeline-entry {{ entry_side }}">
-              <div class="tl-year">{{ post.date | date: "%Y" }}</div>
+              <div class="tl-year">{{ post.date | date: "%b %Y" }} - Present</div>
               <div class="tl-text"><strong>{{ post.title }}</strong><br>{{ post.venue }}</div>
               <div class="tl-dot"></div>
             </div>
               {% assign entry_index = entry_index | plus: 1 %}
             {% endfor %}
+            <div class="timeline-entry timeline-entry-left">
+              <div class="tl-year">2026</div>
+              <div class="tl-text"><strong>Volunteer</strong><br>ICLR 2026 Conference</div>
+              <div class="tl-dot"></div>
+            </div>
             <div class="timeline-entry timeline-entry-right">
+              <div class="tl-year">Jul 2025 - Present</div>
+              <div class="tl-text"><strong>AI Researcher</strong><br>VUNESP, Brazil</div>
+              <div class="tl-dot"></div>
+            </div>
+            <div class="timeline-entry timeline-entry-left">
               <div class="tl-year">2023</div>
               <div class="tl-text"><strong>Researcher</strong><br>Prisma Research Group, UNESP, Brazil</div>
               <div class="tl-dot"></div>
             </div>
-            <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">2015</div>
+            <div class="timeline-entry timeline-entry-right">
+              <div class="tl-year">2015 - 2017</div>
               <div class="tl-text"><strong>Master's in Electrical Engineering</strong><br>UNICAMP, Brazil</div>
               <div class="tl-dot"></div>
             </div>
-            <div class="timeline-entry timeline-entry-right">
-              <div class="tl-year">2010</div>
+            <div class="timeline-entry timeline-entry-left">
+              <div class="tl-year">2006 - 2010</div>
               <div class="tl-text"><strong>Bachelor's in Electronic Engineering</strong><br>San Luis Gonzaga National University, Peru</div>
               <div class="tl-dot"></div>
             </div>
