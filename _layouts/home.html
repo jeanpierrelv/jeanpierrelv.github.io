@@ -74,6 +74,7 @@ layout: compress
           <h2 class="section-heading">News</h2>
           <div class="news-content">
             <ul class="items-list">
+              <li><span class="date">April 2026</span> ICLR Volunteer</li>
               <li><span class="date">Jun 2026</span> Teaching Neural Networks and Deep Learning, UNESP</li>
               <li><span class="date">Jan 2026</span> Paper accepted at SN Computer Science Journal: "Self-Supervised Learning for Extracting Interpersonal Dynamics in Video Robbery Detection"</li>
               <li><span class="date">Jan 2026</span> Teaching Computer Organization and Architecture, UNESP</li>
@@ -113,27 +114,27 @@ layout: compress
               {% assign entry_index = entry_index | plus: 1 %}
             {% endfor %}
             <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">2026</div>
-              <div class="tl-text"><strong>Volunteer</strong><br>ICLR 2026 Conference</div>
-              <div class="tl-dot"></div>
-            </div>
-            <div class="timeline-entry timeline-entry-right">
               <div class="tl-year">Jul 2025 - Present</div>
               <div class="tl-text"><strong>AI Researcher</strong><br>VUNESP, Brazil</div>
               <div class="tl-dot"></div>
             </div>
-            <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">2023</div>
-              <div class="tl-text"><strong>Researcher</strong><br>Prisma Research Group, UNESP, Brazil</div>
+            <div class="timeline-entry timeline-entry-right">
+              <div class="tl-year">2023 - Present</div>
+              <div class="tl-text"><strong>AI Researcher</strong><br>Prisma Research Group, UNESP, Brazil</div>
               <div class="tl-dot"></div>
             </div>
-            <div class="timeline-entry timeline-entry-right">
-              <div class="tl-year">2015 - 2017</div>
+            <div class="timeline-entry timeline-entry-left">
+              <div class="tl-year">2013 - 2016</div>
               <div class="tl-text"><strong>Master's in Electrical Engineering</strong><br>UNICAMP, Brazil</div>
               <div class="tl-dot"></div>
             </div>
+            <div class="timeline-entry timeline-entry-right">
+              <div class="tl-year">2010 - 2013</div>
+              <div class="tl-text"><strong>Project Manager/Automation Engineer</strong><br>INDUCONTROL, Perú</div>
+              <div class="tl-dot"></div>
+            </div>
             <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">2006 - 2010</div>
+              <div class="tl-year">2005 - 2010</div>
               <div class="tl-text"><strong>Bachelor's in Electronic Engineering</strong><br>San Luis Gonzaga National University, Peru</div>
               <div class="tl-dot"></div>
             </div>
@@ -153,7 +154,7 @@ layout: compress
 
           <!-- Selected Publications -->
           <div id="tab-recent" class="pub-tab-pane pub-tab-active">
-            {% for post in site.publications reversed limit:4 %}
+            {% for post in site.publications reversed limit:4 offset:2 %}
             <div class="pub-card">
               {% if post.image %}
               <div class="pub-image">
