@@ -21,8 +21,8 @@ layout: compress
         <ul class="navbar-list">
           <li><a class="navbar-link" onclick="scrollToSection('news', event)">News</a></li>
           <li><a class="navbar-link" onclick="scrollToSection('research', event)">Research</a></li>
-          <li><a class="navbar-link" onclick="scrollToSection('timeline', event)">Timeline</a></li>
           <li><a class="navbar-link" onclick="scrollToSection('publications', event)">Publications</a></li>
+          <li><a class="navbar-link" onclick="scrollToSection('timeline', event)">Timeline</a></li>
         </ul>
       </div>
     </nav>
@@ -89,56 +89,6 @@ layout: compress
         <div id="research" class="section">
           <h2 class="section-heading">Research</h2>
           <p class="research-text">I am a researcher at the Prisma Research Group, Department of Statistics, Applied Mathematics and Computing, São Paulo State University. My research focuses on computer vision with deep learning, algorithms for morphometric measurements from 3D tomographic images, and large language models. I specialize in Deep Learning, Computer Vision, Time Series Forecasting, Information Retrieval, and Control Systems.</p>
-        </div>
-
-        <hr class="divider">
-
-        <!-- Timeline Section -->
-        <div id="timeline" class="section">
-          <h2 class="section-heading">Timeline</h2>
-          <div class="timeline-content">
-            {% assign entry_index = 0 %}
-            {% for post in site.teaching reversed %}
-              {% capture entry_side %}
-                {% if entry_index | modulo: 2 == 0 %}
-                  timeline-entry-right
-                {% else %}
-                  timeline-entry-left
-                {% endif %}
-              {% endcapture %}
-            <div class="timeline-entry {{ entry_side }}">
-              <div class="tl-year">{{ post.date | date: "%b %Y" }} - Present</div>
-              <div class="tl-text"><strong>{{ post.title }}</strong><br>{{ post.venue }}</div>
-              <div class="tl-dot"></div>
-            </div>
-              {% assign entry_index = entry_index | plus: 1 %}
-            {% endfor %}
-            <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">Jul 2025 - Present</div>
-              <div class="tl-text"><strong>AI Researcher</strong><br>VUNESP, Brazil</div>
-              <div class="tl-dot"></div>
-            </div>
-            <div class="timeline-entry timeline-entry-right">
-              <div class="tl-year">2023 - Present</div>
-              <div class="tl-text"><strong>AI Researcher</strong><br>Prisma Research Group, UNESP, Brazil</div>
-              <div class="tl-dot"></div>
-            </div>
-            <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">2013 - 2016</div>
-              <div class="tl-text"><strong>Master's in Electrical Engineering</strong><br>UNICAMP, Brazil</div>
-              <div class="tl-dot"></div>
-            </div>
-            <div class="timeline-entry timeline-entry-right">
-              <div class="tl-year">2010 - 2013</div>
-              <div class="tl-text"><strong>Project Manager/Automation Engineer</strong><br>INDUCONTROL, Perú</div>
-              <div class="tl-dot"></div>
-            </div>
-            <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">2005 - 2010</div>
-              <div class="tl-text"><strong>Bachelor's in Electronic Engineering</strong><br>San Luis Gonzaga National University, Peru</div>
-              <div class="tl-dot"></div>
-            </div>
-          </div>
         </div>
 
         <hr class="divider">
@@ -218,6 +168,56 @@ layout: compress
               </div>
             </div>
             {% endfor %}
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Timeline Section -->
+        <div id="timeline" class="section">
+          <h2 class="section-heading">Timeline</h2>
+          <div class="timeline-content">
+            {% assign entry_index = 0 %}
+            {% for post in site.teaching reversed %}
+              {% capture entry_side %}
+                {% if entry_index | modulo: 2 == 0 %}
+                  timeline-entry-right
+                {% else %}
+                  timeline-entry-left
+                {% endif %}
+              {% endcapture %}
+            <div class="timeline-entry {{ entry_side }}">
+              <div class="tl-year">{{ post.date | date: "%b %Y" }} - Present</div>
+              <div class="tl-text"><strong>{{ post.title }}</strong><br>{{ post.venue }}</div>
+              <div class="tl-dot"></div>
+            </div>
+              {% assign entry_index = entry_index | plus: 1 %}
+            {% endfor %}
+            <div class="timeline-entry timeline-entry-left">
+              <div class="tl-year">Jul 2025 - Present</div>
+              <div class="tl-text"><strong>AI Researcher</strong><br>VUNESP, Brazil</div>
+              <div class="tl-dot"></div>
+            </div>
+            <div class="timeline-entry timeline-entry-right">
+              <div class="tl-year">2023 - Present</div>
+              <div class="tl-text"><strong>AI Researcher</strong><br>Prisma Research Group, UNESP, Brazil</div>
+              <div class="tl-dot"></div>
+            </div>
+            <div class="timeline-entry timeline-entry-left">
+              <div class="tl-year">2013 - 2016</div>
+              <div class="tl-text"><strong>Master's in Electrical Engineering</strong><br>UNICAMP, Brazil</div>
+              <div class="tl-dot"></div>
+            </div>
+            <div class="timeline-entry timeline-entry-right">
+              <div class="tl-year">2010 - 2013</div>
+              <div class="tl-text"><strong>Project Manager/Automation Engineer</strong><br>INDUCONTROL, Perú</div>
+              <div class="tl-dot"></div>
+            </div>
+            <div class="timeline-entry timeline-entry-left">
+              <div class="tl-year">2005 - 2010</div>
+              <div class="tl-text"><strong>Bachelor's in Electronic Engineering</strong><br>San Luis Gonzaga National University, Peru</div>
+              <div class="tl-dot"></div>
+            </div>
           </div>
         </div>
 
