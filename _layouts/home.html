@@ -187,36 +187,42 @@ layout: compress
                 {% endif %}
               {% endcapture %}
             <div class="timeline-entry {{ entry_side }}">
-              <div class="tl-year">{{ post.date | date: "%b %Y" }} - Present</div>
+              <div class="tl-year">
+                <span class="time">{{ post.date | date: "%b %Y" }} - Present</span>
+              </div>
               <div class="tl-text"><strong>{{ post.title }}</strong><br>{{ post.venue }}</div>
-              <div class="tl-dot"></div>
             </div>
               {% assign entry_index = entry_index | plus: 1 %}
             {% endfor %}
             <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">Jul 2025 - Present</div>
+              <div class="tl-year">
+                <span class="time">Jul 2025 - Present</span>
+              </div>
               <div class="tl-text"><strong>AI Researcher</strong><br>VUNESP, Brazil</div>
-              <div class="tl-dot"></div>
             </div>
             <div class="timeline-entry timeline-entry-right">
-              <div class="tl-year">2023 - Present</div>
+              <div class="tl-year">
+                <span class="time">2023 - Present</span>
+              </div>
               <div class="tl-text"><strong>AI Researcher</strong><br>Prisma Research Group, UNESP, Brazil</div>
-              <div class="tl-dot"></div>
             </div>
             <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">2013 - 2016</div>
+              <div class="tl-year">
+                <span class="time">2013 - 2016</span>
+              </div>
               <div class="tl-text"><strong>Master's in Electrical Engineering</strong><br>UNICAMP, Brazil</div>
-              <div class="tl-dot"></div>
             </div>
             <div class="timeline-entry timeline-entry-right">
-              <div class="tl-year">2010 - 2013</div>
+              <div class="tl-year">
+                <span class="time">2010 - 2013</span>
+              </div>
               <div class="tl-text"><strong>Project Manager/Automation Engineer</strong><br>INDUCONTROL, Perú</div>
-              <div class="tl-dot"></div>
             </div>
             <div class="timeline-entry timeline-entry-left">
-              <div class="tl-year">2005 - 2010</div>
+              <div class="tl-year">
+                <span class="time">2005 - 2010</span>
+              </div>
               <div class="tl-text"><strong>Bachelor's in Electronic Engineering</strong><br>San Luis Gonzaga National University, Peru</div>
-              <div class="tl-dot"></div>
             </div>
           </div>
         </div>
